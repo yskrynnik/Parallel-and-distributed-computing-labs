@@ -11,11 +11,10 @@ public class Main {
         int[] n = new int[]{150,1500,3000,4500,6000,7500,9000,10500,12000};
 
         for (int size : n) {
-            int bytes = size * size * 4 / 1024;
 
-            System.out.println("Вариант №1:\nРазмер массива = " + size + "\nРазмер в памяти = " + bytes + " kb\nЗатраченное время = " + VarOne(size) + " мс\n");
-            System.out.println("Вариант №2:\nРазмер массива = " + size + "\nРазмер в памяти = " + bytes + " kb\nЗатраченное время = " + VarTwo(size) + " мс\n");
-            System.out.println("Вариант №3:\nРазмер массива = " + size + "\nРазмер в памяти = " + bytes + " kb\nЗатраченное время = " + VarThree(size) + " мс\n");
+            System.out.println("Вариант №1:\nРазмер массива = " + size + "\nЗатраченное время = " + VarOne(size) + " мс\n");
+            System.out.println("Вариант №2:\nРазмер массива = " + size + "\nЗатраченное время = " + VarTwo(size) + " мс\n");
+            System.out.println("Вариант №3:\nРазмер массива = " + size + "\nЗатраченное время = " + VarThree(size) + " мс\n");
             System.out.println("Заполнение по строкам(int):\nРазмер массива = " + size + "\nРазмер в памяти = " + bytes + " kb\nЗатраченное время = " + fillByRowsInt(size) + " мс\n");
             System.out.println("Заполнение по столбцам(int):\nРазмер массива = " + size + "\nРазмер в памяти = " + bytes + " kb\nЗатраченное время = " + fillByColumnsInt(size) + " мс\n");
             System.out.println("Заполнение по строкам(float):\nРазмер массива = " + size + "\nРазмер в памяти = " + bytes + " kb\nЗатраченное время = " + fillByRowsFloat(size) + " мс\n");
