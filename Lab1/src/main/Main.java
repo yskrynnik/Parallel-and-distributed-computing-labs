@@ -1,5 +1,8 @@
 package main;
 
+import java.util.ArrayList;
+import java.util.LinkedList;
+
 public class Main {
 
     public static void main(String[] args) {
@@ -10,6 +13,9 @@ public class Main {
         for (int size : n) {
             int bytes = size * size * 4 / 1024;
 
+            System.out.println("Вариант №1:\nРазмер массива = " + size + "\nРазмер в памяти = " + bytes + " kb\nЗатраченное время = " + VarOne(size) + " мс\n");
+            System.out.println("Вариант №2:\nРазмер массива = " + size + "\nРазмер в памяти = " + bytes + " kb\nЗатраченное время = " + VarTwo(size) + " мс\n");
+            System.out.println("Вариант №3:\nРазмер массива = " + size + "\nРазмер в памяти = " + bytes + " kb\nЗатраченное время = " + VarThree(size) + " мс\n");
             System.out.println("Заполнение по строкам(int):\nРазмер массива = " + size + "\nРазмер в памяти = " + bytes + " kb\nЗатраченное время = " + fillByRowsInt(size) + " мс\n");
             System.out.println("Заполнение по столбцам(int):\nРазмер массива = " + size + "\nРазмер в памяти = " + bytes + " kb\nЗатраченное время = " + fillByColumnsInt(size) + " мс\n");
             System.out.println("Заполнение по строкам(float):\nРазмер массива = " + size + "\nРазмер в памяти = " + bytes + " kb\nЗатраченное время = " + fillByRowsFloat(size) + " мс\n");
@@ -73,4 +79,50 @@ public class Main {
         }
         return System.currentTimeMillis()-t;
     }
+
+    public static long VarOne(int size)
+    {
+        double array[] = new double[size];
+        long t=System.currentTimeMillis();
+
+        for (int i=0;i<size;i++)
+            array[i]=i;
+        double sum=0;
+
+        for (int i=0;i<size;i++)
+            sum+=array[i];
+
+        return System.currentTimeMillis()-t;
+    }
+
+    public static long VarTwo(int size)
+    {
+        LinkedList<Double> linked_list = new LinkedList<Double>();
+        long t=System.currentTimeMillis();
+
+        for (int i=0;i<size;i++)
+            linked_list.add(new Double(i));
+        double sum=0;
+
+        for (int i=0;i<size;i++)
+            sum+=linked_list.get(i);
+
+        return System.currentTimeMillis()-t;
+    }
+
+    public static long VarThree(int size)
+    {
+        ArrayList<Double> array_list = new ArrayList<Double>(size);
+        long t=System.currentTimeMillis();
+
+        for (int i=0;i<size;i++)
+            array_list.add(new Double(i));
+        double sum=0;
+
+        for (int i=0;i<size;i++)
+            sum+=array_list.get(i);
+
+        return System.currentTimeMillis()-t;
+    }
+
 }
